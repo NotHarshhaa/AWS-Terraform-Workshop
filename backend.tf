@@ -1,12 +1,21 @@
 # Backend configuration for remote state storage
 # NOTE: You must initialize this backend with proper values before applying
-# terraform init -backend-config="bucket=actual-bucket-name" -backend-config="dynamodb_table=actual-table-name"
+# Real information for remote state store in backend.hcl
 terraform {
-  backend "s3" {
-    bucket         = "your-s3-bucket-name"       # Replace with your S3 bucket name
-    key            = "terraform/state.tfstate"   # Path to store Terraform state
-    region         = "us-east-1"                 # Modify to your AWS region
-    dynamodb_table = "your-dynamodb-table-name"  # Replace with your DynamoDB table name
-    encrypt        = true                        # Ensures state file encryption
-  }
+  backend "s3" {}
 }
+
+# key : The key is the path within the S3 bucket where the Terraform state file will be stored. 
+#       It is defined in the backend.hcl file as "aws-terraform-workshop/terraform.tfstate".
+
+# region : The region specifies the AWS region where the S3 bucket is located.
+#          It is defined in the backend.hcl file as "us-east-1".
+
+# dynamodb_table : The DynamoDB table is used for state locking to prevent concurrent modifications. 
+#                  It is defined in the backend.hcl file as "terraform-lock".
+
+# encrypt : The encrypt option is set to true, which means that the state file will be encrypted at rest in the S3 bucket.
+#           This is defined in the backend.hcl file as "true".
+
+# use_lockfile : The use_lockfile option is set to true, which means that Terraform will 
+#                create a local lock file to prevent concurrent operations on the same state file.

@@ -81,7 +81,7 @@ resource "aws_subnet" "private_subnet" {
 
 # Create Elastic IP for NAT Gateway
 resource "aws_eip" "nat_eip" {
-  count = var.enable_private_subnet ? 1 : 0
+  count  = var.enable_private_subnet ? 1 : 0
   domain = "vpc"
 
   tags = merge(

@@ -1,0 +1,15 @@
+version: 3
+
+projects:
+  - name: aws-terraform-workshop
+    dir: .
+    workspace: default
+
+    autoplan:
+      enabled: true
+      when_modified:
+        - "*.tf"
+        - "*.tfvars"
+        - "backend.hcl"
+        - "scripts/**"
+        - ".terraform.lock.hcl"

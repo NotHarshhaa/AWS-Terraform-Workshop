@@ -1,0 +1,15 @@
+# Terraform configuration
+*.tf @Sotatek-KhanhPhung
+*.tfvars @Sotatek-KhanhPhung
+
+# Terraform backend
+backend.hcl @Sotatek-KhanhPhung
+
+# Atlantis workflow
+atlantis.yaml @Sotatek-KhanhPhung
+
+# Terraform related scripts
+scripts/** @Sotatek-KhanhPhung
+
+# Protect CODEOWNERS itself
+.github/CODEOWNERS @Sotatek-KhanhPhung
